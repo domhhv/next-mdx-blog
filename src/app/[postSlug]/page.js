@@ -9,8 +9,6 @@ import styles from './postSlug.module.css';
 async function BlogPost({ params }) {
   const blogPost = await loadBlogPost(params.postSlug);
 
-  console.log(blogPost);
-
   return (
     <article className={styles.wrapper}>
       <BlogHero
