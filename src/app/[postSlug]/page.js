@@ -2,8 +2,8 @@ import React from 'react';
 import {MDXRemote} from "next-mdx-remote/rsc";
 
 import {loadBlogPost} from "@/helpers/file-helpers";
+import COMPONENT_MAP from "@/helpers/mdx-components";
 import BlogHero from '@/components/BlogHero';
-import CodeSnippet from "@/components/CodeSnippet";
 import {BLOG_TITLE} from "@/constants";
 
 import styles from './postSlug.module.css';
@@ -27,7 +27,10 @@ async function BlogPost({ params }) {
         publishedOn={blogPost.frontmatter.publishedOn}
       />
       <div className={styles.page}>
-        <MDXRemote source={blogPost.content} components={{ pre: CodeSnippet }} />
+        <MDXRemote
+          source={blogPost.content}
+          components={COMPONENT_MAP}
+        />
       </div>
     </article>
   );
